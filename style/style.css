@@ -1,0 +1,32 @@
+:root {
+    --plyr-color-main: #dd5252;
+    --plyr-audio-controls-background: #23272A;
+}
+
+body {
+    background-color: #232323;
+    color: #FFFFFF;
+}
+
+audio {
+    width: 100%;
+}
+
+.card {
+    border: none;
+}
+
+#url {
+    text-decoration: none;
+    color: #7289DA;
+    font-weight: bold;
+}
+
+#url:hover {
+    color: #4D5E94;
+    text-decoration: underline;
+}
+
+.plyr {
+    cursor: "pointer" !important;
+}

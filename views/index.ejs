@@ -1,0 +1,45 @@
+<%- include("./blocks/header.ejs") %>
+<br><br><br><br>
+<div class="container">
+    <div class="jumbotron bg-dark text-white">
+        <center>
+            <img draggable="false"
+                src="https://cdn.glitch.com/e76ae363-16c5-4fd7-a171-d3823a78d505%2F0ade0a3b-681b-40ed-a3ff-a1a5063bc79b.image.png?v=1582287697033"
+                class="rounded img-fluid" height="200" width="200">
+            <br />
+            <h3>
+                YouTube Video Downloader
+            </h3>
+        </center>
+        <hr style="background-color: #FFFFFF;">
+        <% if(error) { %>
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h5>
+                <%= error %>
+            </h5>
+        </div>
+        <% } %>
+        <form method="POST" autocomplete="off">
+            <div class="form-group">
+                <label for="video">YouTube Video URL/Name</label>
+                <input type="text" name="video" class="form-control" id="video" aria-describedby="desc" required>
+                <small id="desc" class="form-text text-muted">YouTube video URL/Name</small>
+            </div>
+            <div class="form-group">
+                <label for="fc">Select one</label>
+                <select name="type" class="form-control" id="fc">
+                    <option value="play">Play Song</option>
+                    <option value="video">Download Video</option>
+                    <option value="audio">Download Audio</option>
+                </select>
+            </div>
+            <button type="submit" id="button" class="btn btn-danger">Submit</button>
+        </form>
+        <br><br>
+    </div>
+</div>
+
+<%- include("./blocks/footer.ejs") %>
