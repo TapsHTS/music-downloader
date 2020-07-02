@@ -63,10 +63,10 @@ async function downloadVideo(video, type, res) {
         });
     } else {
         var downloadedStream;
-            if (type !== "audio") downloadedStream = await ytdl(pickOne[0].link, {
+            if (type !== "audio") downloadedStream = ytdl(pickOne[0].link, {
                 format: "mp4"
             });
-            else downloadedStream = await ytdl(pickOne[0].link, {
+            else downloadedStream = ytdl(pickOne[0].link, {
                 quality: "highestaudio"
             });
         } catch (e) {
