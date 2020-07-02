@@ -12,3 +12,6 @@ Simple project to play/download youtube videos
 
 # Preview
 **[https://player.snowflakedev.xyz](https://player.snowflakedev.xyz)**
+
+# Host your own for free
+[![Run on Repl.it](https://repl.it/badge/github/Snowflake107/youtube-player)](https://repl.it/github/Snowflake107/youtube-player)
