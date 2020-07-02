@@ -47,7 +47,6 @@ async function downloadVideo(video, type, res) {
     if (type === "play") {
         try {
             var downloaded = await ytdl.getInfo(pickOne[0].link, {
-                filter: (f) => f.container === "mp4",
                 quality: "heighest"
             });
         } catch (e) {
@@ -63,11 +62,9 @@ async function downloadVideo(video, type, res) {
             data: pickOne[0]
         });
     } else {
-        try {
-            var downloadedStream;
+        var downloadedStream;
             if (type !== "audio") downloadedStream = await ytdl(pickOne[0].link, {
-                quality: "highestvideo",
-                filter: (fmt) => fmt.container === "mp4"
+                format: "mp4"
             });
             else downloadedStream = await ytdl(pickOne[0].link, {
                 quality: "highestaudio"
@@ -80,7 +77,7 @@ async function downloadVideo(video, type, res) {
         if (!downloadedStream) return res.render("index", {
             error: "Couldn't find the video!"
         });
-        res.header("Content-Disposition", `attachment; filename="${pickOne[0].title}.${type == "audio" ? "mp3" : "mp4"}"`);
+        res.attachment(`${pickOne[0].title}.mp4`);
         return downloadedStream.pipe(res);
     }
 }
