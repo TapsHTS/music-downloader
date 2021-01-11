@@ -1,5 +1,5 @@
-# music-loader
-Simple project to download music.
+# Music-Downloader
+Simple project to download music from Youtube.
 
 # Packages
 - [express](https://npmjs.com/package/express)
@@ -8,7 +8,7 @@ Simple project to download music.
 - [youtube-sr](https://www.npmjs.com/package/youtube-sr)
 - [cors](https://www.npmjs.com/package/cors)
 
-# Create by Taps
+# Created by Taps
 
 # Credits
 **❤ Thank's [Snowflake](https://github.com/Snowflake107)**
