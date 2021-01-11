@@ -4,7 +4,7 @@
     <div class="jumbotron bg-dark text-white">
         <center>
             <img draggable="false"
-                src="https://cdn.glitch.com/e76ae363-16c5-4fd7-a171-d3823a78d505%2F0ade0a3b-681b-40ed-a3ff-a1a5063bc79b.image.png?v=1582287697033"
+                src="/cd.png"
                 class="rounded img-fluid" height="200" width="200">
             <br />
             <h3>
@@ -24,17 +24,17 @@
         <% } %>
         <form method="POST" autocomplete="off">
             <div class="form-group">
-                <label for="video">YouTube Video URL/Name</label>
+                <label for="video">YouTube Video Name</label>
                 <input type="text" name="video" class="form-control" id="video" aria-describedby="desc" required>
-                <small id="desc" class="form-text text-muted">YouTube video URL/Name</small>
+                <small id="desc" class="form-text text-muted">YouTube video Name</small>
             </div>
             <div class="form-group">
-                <label for="fc">Select one</label>
+                <label for="fc">Selectionner:</label>
                 <select name="type" class="form-control" id="fc">
-                    <option value="audio">Download Audio</option>
+                    <option value="audio">Audio</option>
                 </select>
             </div>
-            <button type="submit" id="button" class="btn btn-danger">Submit</button>
+            <button type="submit" id="button" class="btn btn-danger">Séléctionner</button>
         </form>
         <br><br>
     </div>
