@@ -1,8 +1,10 @@
 const express = require("express");
 const ytdl = require("ytdl-core");
-const ytsr = require("ytsr");
 const app = express();
+const youtube = require('youtube-sr');
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.static("style"));
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -14,11 +16,21 @@ app.get("/", async (req, res) => {
     });
 });
 
+async function downloadVideo(video, type, res) {
+        if (!video) return;
+        youtube.search(video, { limit: 1 }).then(async video => {
+            if (!video[0]) return res.render("index", { error: "❌ Impossible de trouver la musique !" })
+
+            ytdl(video[0].id, { quality: 'highestaudio' }).pipe(res.attachment(video[0].title + '.mp3'));
+        }).catch(err => res.render("index", { error: "❌ Impossible de trouver la musique !"}));
+    
+}
+
 app.post("/", async (req, res) => {
     let video = req.body.video;
     let type = req.body.type || "play";
     if (!video) return res.render("index", {
-        error: "No video provided!"
+        error: "Aucune vidéo fournie!"
     });
     return await downloadVideo(video, type.toLowerCase(), res);
 });
@@ -27,59 +39,6 @@ app.get("*", (req, res) => {
     return res.redirect("/");
 });
 
-async function downloadVideo(video, type, res) {
-    if (!video) return;
-    try {
-        var searchResult = await ytsr(video);
-    } catch(e) {
-        return res.render("index", {
-            error: "Couldn't find the video!"
-        });
-    }
-    if (!searchResult) return res.render("index", {
-        error: "Couldn't find the video!"
-    });
-    let pickOne = searchResult.items.filter(i => i.type === "video");
-    if (!pickOne || pickOne.length < 1) return res.render("index", {
-        error: "Couldn't find the video!"
-    });
-    
-    if (type === "play") {
-        try {
-            var downloaded = await ytdl.getInfo(pickOne[0].link, {
-                quality: "heighest"
-            });
-        } catch (e) {
-            return res.render("index", {
-                error: "Couldn't find the video!"
-            });
-        }
-        if (!downloaded) return res.render("index", {
-            error: "Couldn't find the video!"
-        });
-        return res.render("player", {
-            stream: downloaded.formats[0].url,
-            data: pickOne[0]
-        });
-    } else {
-        var downloadedStream;
-            if (type !== "audio") downloadedStream = ytdl(pickOne[0].link, {
-                format: "mp4"
-            });
-            else downloadedStream = ytdl(pickOne[0].link, {
-                quality: "highestaudio"
-            });
-        } catch (e) {
-            return res.render("index", {
-                error: "Couldn't find the video!"
-            });
-        }
-        if (!downloadedStream) return res.render("index", {
-            error: "Couldn't find the video!"
-        });
-        res.attachment(`${pickOne[0].title}.mp4`);
-        return downloadedStream.pipe(res);
-    }
-}
 
-app.listen(3000, () => console.log("Server started!"));
+
+app.listen(3000, () => console.log("Site démarer !"));

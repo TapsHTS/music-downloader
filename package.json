@@ -1,30 +1,36 @@
 {
-  "name": "youtube-player",
+  "name": "music-loader",
   "version": "1.0.0",
-  "description": "Simple youtube video player & downloader",
+  "description": "An easy way to download music.",
   "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "youtube-sr": "^2.0.5",
+    "ytdl-core": "^4.4.2"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Snowflake107/youtube-video-downloader.git"
+    "url": "git+https://github.com/TapsHTS/music-loader.git"
   },
   "keywords": [
-    "ytdl",
     "download",
-    "youtube"
+    "music",
+    "music",
+    "download",
+    "download",
+    "music",
+    "html"
   ],
-  "author": "Snowflake107",
-  "license": "MIT",
+  "author": "Taps",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Snowflake107/youtube-video-downloader/issues"
+    "url": "https://github.com/TapsHTS/music-loader/issues"
   },
-  "homepage": "https://github.com/Snowflake107/youtube-video-downloader#readme",
-  "dependencies": {
-    "ejs": "^3.1.3",
-    "express": "^4.17.1",
-    "ytdl-core": "^2.1.7",
-    "ytsr": "^0.1.15"
-  }
+  "homepage": "https://github.com/TapsHTS/music-loader#readme"
 }
