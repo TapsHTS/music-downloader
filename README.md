@@ -8,8 +8,7 @@ Simple project to download music.
 - [youtube-sr](https://www.npmjs.com/package/youtube-sr)
 - [cors](https://www.npmjs.com/package/cors)
 
-# Create by
-**Taps**
+# Create by Taps
 
 # Credits
 **❤ Thank's [Snowflake](https://github.com/Snowflake107)**
