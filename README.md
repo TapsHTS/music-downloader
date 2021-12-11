@@ -11,5 +11,4 @@ Simple project to download music from Youtube.
 # Created by Taps
 
 # Credits
-** ❤ Thank's to [Snowflake](https://github.com/Snowflake107) for the base idea **
-** ❤ Thank's to [Simon](https://github.com/SimonLeclere) for the correction of spelling mistakes **
+**❤ Thank's [Snowflake](https://github.com/Snowflake107)**

@@ -30,3 +30,9 @@ audio {
 .plyr {
     cursor: "pointer" !important;
 }
+
+#container {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+  }
