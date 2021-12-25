@@ -1,44 +1,47 @@
 <%- include("./blocks/header.ejs") %>
-<br><br><br><br>
-<div class="container">
-    <div class="jumbotron bg-dark text-white">
-        <center>
-            <img draggable="false"
-                src="/cd.png"
-                class="rounded img-fluid" height="200" width="200">
-            <br />
-            <div id="container"></div>
-            <h3>
-                Music Downloader
-            </h3>
-        </center>
-        <hr style="background-color: #948d8d;">
-        <% if(error) { %>
-        <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <h5>
-                <%= error %>
-            </h5>
-        </div>
-        <% } %>
-        <form method="POST" autocomplete="off">
-            <div class="form-group">
-                <label for="video">YouTube Video Name</label>
-                <input type="text" name="video" class="form-control" id="video" aria-describedby="desc" required>
-                <small id="desc" class="form-text text-muted">YouTube video Name</small>
-            </div>
-            <div class="form-group">
-                <label for="fc">Selectionner:</label>
-                <select name="type" class="form-control" id="fc">
+    <br><br><br><br>
+    <div class="container">
+        <div class="jumbotron bg-dark text-white">
+            <center>
+                <img draggable="false" src="/cd.png" class="rounded img-fluid" height="200" width="200">
+                <br />
+                <h3>
+                    Music Downloader
+                </h3>
+            </center>
+            <hr style="background-color: #948d8d;">
+            <% if(error) { %>
+                <script>
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Impossible de trouver la musique !',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                </script>
+                <% } %>
+                    <form method="POST" autocomplete="off">
+                        <div class="form-group">
+                            <label for="video">YouTube Video Url/Name</label>
+                            <input type="text" name="video" class="form-control" id="video" aria-describedby="desc" required>
+                            <small id="desc" class="form-text text-muted">YouTube video Name</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="fc">Sélectionner:</label>
+                            <select name="type" class="form-control" id="fc">
                     <option value="audio">Audio</option>
                 </select>
-            </div>
-            <button type="submit" id="button" class="btn btn-danger">Séléctionner</button>
-        </form>
-        <br><br>
+                        </div>
+                        <button type="submit" id="button" class="btn btn-danger">Valider</button>
+                    </form>
+                    <br><br>
+        </div>
     </div>
-</div>
+    <!-- <script>
+        if (location.protocol != 'https:') {
+            location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        }
+    </script> -->
 
-<%- include("./blocks/footer.ejs") %>
+    <%- include("./blocks/footer.ejs") %>
